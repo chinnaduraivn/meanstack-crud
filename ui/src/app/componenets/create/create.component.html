@@ -1,0 +1,13 @@
+<div class="container outer-div">
+    <h1>Add Item</h1>
+<mat-form-field appearance="standard">
+<input type=”text” matInput [(ngModel)]="item.item_id" placeholder="id">
+<input type=”text” matInput [(ngModel)]="item.item_name" placeholder="name">
+<input type=”text” matInput [(ngModel)]="item.item_type" placeholder="type">
+<input type=”text” matInput [(ngModel)]="item.item_price" placeholder="price">
+
+<button matInput (click)="printItem()">Click me</button>
+
+</mat-form-field>
+
+</div>
