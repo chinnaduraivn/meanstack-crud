@@ -1,35 +1,24 @@
+import { AppComponent } from './app.component';
+import { DashboardModule } from './dashboard/dashboard.module'
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes} from '@angular/router'
 import { FormsModule } from '@angular/forms';
-
 import { MatIconModule, MatToolbarModule, MatInputModule} from '@angular/material'
-
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ListComponent } from './componenets/list/list.component';
-import { CreateComponent } from './componenets/create/create.component';
-import { EditComponent } from './componenets/edit/edit.component';
 
-import { ItemService } from './service/item.service';
 
-const routes: Routes = [
-
-  {path: 'item/create',component: CreateComponent},
-  {path: 'item/edit',component: EditComponent},
-  {path: 'item/list',component: ListComponent},
-  {path: '',redirectTo:'item/list',pathMatch:'full'}
-];
 @NgModule({
   declarations: [
-    AppComponent,
-    ListComponent,
-    CreateComponent,
-    EditComponent
+    AppComponent
   ],
   imports: [
+
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     MatIconModule,
@@ -37,9 +26,10 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     MatInputModule,
-    RouterModule.forRoot(routes)
+    BrowserAnimationsModule,
+    DashboardModule
   ],
-  providers: [ ItemService ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

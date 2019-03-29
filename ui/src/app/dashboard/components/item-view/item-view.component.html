@@ -1,0 +1,35 @@
+
+<mat-card>
+
+<table mat-table class="mat-elevation-z8, item-table" >
+    <tr mat-header-row class="item-header">
+    <td>ID</td>
+    <td>Name</td>
+    <td>Price</td>
+    <td>Type</td>
+    <td>Status</td>
+    <td>Actions</td>
+    </tr>
+  <tr mat-row  *ngFor = "let item of items">
+      <td>{{item.item_id}}</td>
+      <td>{{item.item_name}}</td>
+      <td>{{item.item_price}}</td>
+      <td>{{item.item_type}}</td>
+    <td>
+      Is Available {{toggle}}
+      <app-item-terms [price] = "item.item_price" (available) = "setAvailability($event)" >
+      </app-item-terms>
+    </td>
+
+    <td>
+        <button (click)="directToView(item.item_id)" >View Item</button>
+        <button (click)="directToUpdate(item.item_id)" >Update Item</button>
+        <button (click)="directToDelete(item.item_id)" >Delete Item</button>
+    </td>
+  </tr>
+</table>
+  <nav>
+      <button routerLink="/item/create" routerLinkActive="active">Create Item</button>
+  </nav>
+ 
+</mat-card>

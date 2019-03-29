@@ -4,8 +4,14 @@ const itemRoutes = express.Router();
 
 let Item = require('../model/Item');
         
-itemRoutes.get('/', function(req, res, next) {
-    res.json({ message: 'hooray! welcome to our item!' });   
+itemRoutes.get('/items', function(req, res, next) {
+    Item.find({}, function (err, result) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(JSON.stringify(result));
+        }
+    })  
 });
 
 itemRoutes.post('/add',function (req,res,next){
@@ -23,7 +29,7 @@ itemRoutes.post('/add',function (req,res,next){
 
 itemRoutes.get('/edit/:id', function (req,res,next) {
    let id = req.params.id;
-   Item.findById(id,function(err, item) {
+   Item.findOne({item_id:id},function(err, item) {
        if(err){
            console.log(err);
        }
@@ -61,7 +67,7 @@ itemRoutes.post('/update/:id', function (req,res,next) {
 
 itemRoutes.get('/delete/:id', function(req,res,next){
    Item.findByIdAndDelete(
-       {_id: req.params.id}, function(err, item){
+       {item_id: req.params.id}, function(err, item){
            if(err) res.json(err);
            else res.json('Successfully removed');
        });

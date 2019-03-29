@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Item } from '../models/item';
+import { Item } from '../../models/item'
+import { Options } from '../../models/result'
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +20,8 @@ export class ItemService {
   }
 
   addItem(item : Item){
-    console.log(" This is service "+'${this.url}');
-    console.log(item);
-   return this.http.post('http://localhost:3000/item/add',item);
+    
+   return this.http.post<Options>('http://localhost:3000/item/add',item);
   }
 
   updateItem(id,item_id,name,price,type){

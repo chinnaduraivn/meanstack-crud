@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../../service/item.service';
-import { Item } from 'src/app/models/item';
 
 @Component({
-  selector: 'app-edit',
-  templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss']
+  selector: 'app-item-update',
+  templateUrl: './item-update.component.html',
+  styleUrls: ['./item-update.component.css']
 })
-export class EditComponent implements OnInit {
+export class ItemUpdateComponent implements OnInit {
+
   id: String;
   constructor(private itemService: ItemService) { }
 
@@ -20,5 +20,4 @@ export class EditComponent implements OnInit {
       console.log(data);
     });
   }
-
 }

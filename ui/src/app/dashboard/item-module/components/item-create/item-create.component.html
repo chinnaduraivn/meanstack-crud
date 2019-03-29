@@ -1,0 +1,21 @@
+<div class="item-div">
+ 
+<form class="item-form" appearance="standard">
+    <mat-form-field class="item-full-width">
+      <input type=”text” matInput [(ngModel)]="item.item_id" placeholder="id" name="Id">
+    </mat-form-field>
+    <mat-form-field class="item-full-width">
+      <input type=”text” matInput [(ngModel)]="item.item_name" placeholder="name" name="Name">
+    </mat-form-field>
+    <mat-form-field class="item-full-width">
+        <input type=”text” matInput [(ngModel)]="item.item_type" placeholder="type" name="Type">
+    </mat-form-field>
+    <mat-form-field class="item-full-width">
+        <input type=”text” matInput [(ngModel)]="item.item_price" placeholder="price" name="Price">
+    </mat-form-field>
+
+    <button mat-raised-button (click)="createItem()">Create Item</button>
+
+</form>
+
+</div>
